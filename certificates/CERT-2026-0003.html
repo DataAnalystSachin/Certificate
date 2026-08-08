@@ -2,400 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Verification - skill course</title>
-    
-    <!-- External Fonts and Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Certificate | Deepak Jangir</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for Green & Gold Theme */
         :root {
-            --primary-green: #0F4C3A; /* Dark Green */
-            --secondary-green: #1a755b;
-            --primary-gold: #D4AF37; /* Gold */
-            --secondary-gold: #e8c968;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --bg-light: #f4f7f6;
-            --white: #ffffff;
+            --bg-color: #f3f5f9;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --accent-blue: #2563eb;
+            --whatsapp-green: #25D366;
             --linkedin-blue: #0a66c2;
-            --whatsapp-green: #25d366;
+            --border: #e2e8f0;
         }
-
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Header Styles */
-        .site-header {
-            background-color: var(--primary-green);
-            color: var(--white);
-            padding: 2rem 1rem;
-            text-align: center;
-            border-bottom: 5px solid var(--primary-gold);
-        }
-        .header-logo {
-            max-height: 80px;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-        }
-        .site-header h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        .site-header p {
-            font-size: 1rem;
-            color: var(--secondary-gold);
-            font-weight: 600;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 900px;
-            margin: -20px auto 40px;
-            padding: 0 1rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Card Styles */
-        .card {
-            background: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* Verification Badge */
-        .verification-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .verification-badge i {
-            font-size: 1.4rem;
-        }
-
-        /* Certificate Image */
-        .certificate-preview {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2.5rem;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.95rem;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-        .btn-primary {
-            background-color: var(--primary-gold);
-            color: var(--primary-green);
-        }
-        .btn-primary:hover {
-            background-color: var(--secondary-gold);
-        }
-        .btn-whatsapp {
-            background-color: var(--whatsapp-green);
-            color: var(--white);
-        }
-        .btn-linkedin {
-            background-color: var(--linkedin-blue);
-            color: var(--white);
-        }
-
-        /* Details Section */
-        .section-title {
-            color: var(--primary-green);
-            font-size: 1.4rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--bg-light);
-        }
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .detail-item {
-            background: var(--bg-light);
-            padding: 1rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--primary-gold);
-        }
-        .detail-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 0.3rem;
-            font-weight: 600;
-        }
-        .detail-value {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-
-        /* Description */
-        .description-box {
-            background: #fff9e6;
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            font-style: italic;
-            color: var(--text-dark);
-            border: 1px solid #f2e3b6;
-        }
-
-        /* Signatures and Logos */
-        .footer-branding {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-        }
-        .signature-block {
-            text-align: center;
-        }
-        .signature-img {
-            max-height: 70px;
-            margin-bottom: 0.5rem;
-        }
-        .authority-name {
-            font-weight: 700;
-            color: var(--primary-green);
-            font-size: 1rem;
-        }
-        .authority-title {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-        .iso-logo {
-            max-height: 80px;
-        }
-
-        /* Page Footer */
-        .site-footer {
-            background-color: var(--primary-green);
-            color: var(--white);
-            padding: 3rem 1rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-        .footer-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-        .footer-info span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--secondary-gold);
-        }
-        .copyright {
-            font-size: 0.8rem;
-            color: #a0bba8;
-            margin-top: 1rem;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            .site-header { padding: 1.5rem 1rem; }
-            .container { margin-top: 0; }
-            .card { padding: 1.5rem 1rem; }
-            .action-buttons { flex-direction: column; }
-            .btn { width: 100%; justify-content: center; }
-            .footer-branding { flex-direction: column; text-align: center; }
-            .footer-info { flex-direction: column; gap: 0.8rem; align-items: center; }
+        * { box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-main); margin: 0; padding: 20px; min-height: 100vh; }
+        .container { width: 100%; max-width: 900px; margin: 0 auto; }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; background: var(--card-bg); padding: 15px 20px; border-radius: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .brand { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 8px; color: var(--text-main); }
+        .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 24px; }
+        .card-info { background: var(--card-bg); padding: 16px; border-radius: 8px; border: 1px solid var(--border); text-align: center; }
+        .label { font-size: 0.75rem; text-transform: uppercase; color: var(--text-light); font-weight: 600; display: block; margin-bottom: 5px; }
+        .value { font-size: 0.95rem; font-weight: 600; color: var(--text-main); word-break: break-word; }
+        .cert-container { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); text-align: center; }
+        .cert-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 24px; display: block; }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .btn { border: none; padding: 12px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; color: white; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-img { background: var(--accent-blue); }
+        .btn-pdf { background: #475569; }
+        .btn-wa { background: var(--whatsapp-green); }
+        .btn-li { background: var(--linkedin-blue); }
+        @media (max-width: 768px) {
+            body { padding: 10px; background: #fff; }
+            .container { max-width: 100%; }
+            .grid { grid-template-columns: 1fr; gap: 10px; }
+            .card-info { padding: 12px; text-align: left; display: flex; justify-content: space-between; align-items: center; }
+            .label { margin-bottom: 0; }
+            .value { text-align: right; font-size: 0.9rem; }
+            .header { padding: 12px; flex-direction: row; margin-bottom: 15px; }
+            .brand { font-size: 1.1rem; }
+            .cert-container { padding: 15px; border: none; box-shadow: none; }
+            .cert-img { margin-bottom: 20px; }
+            .actions { flex-direction: column; gap: 10px; }
+            .btn { width: 100%; padding: 14px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header Section -->
-    <header class="site-header">
-        <img src="https://dataanalystsachin.github.io/Certificate/branding/organization-logo.jpeg" alt="Organization Logo" class="header-logo" onerror="this.style.display='none'">
-        <h1>skill course</h1>
-        <p></p>
-    </header>
-
-    <!-- Main Content -->
-    <main class="container">
-        <div class="card">
-            
-            <!-- Verification Status -->
-            <div class="verification-badge">
-                <i class="fas fa-check-circle"></i>
-                Official & Verified Certificate
-            </div>
-
-            <!-- Certificate Image Preview -->
-            <img src="https://dataanalystsachin.github.io/Certificate/certificates/png/CERT-2026-0003.png" alt="Certificate of Deepak Jangir" class="certificate-preview">
-
-            <!-- Action Buttons -->
-            <div class="action-buttons">
-                <a href="https://dataanalystsachin.github.io/Certificate/certificates/pdf/CERT-2026-0003.pdf" download target="_blank" class="btn btn-primary">
-                    <i class="fas fa-file-pdf"></i> Download PDF
-                </a>
-                <button onclick="shareWhatsApp()" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> Share via WhatsApp
-                </button>
-                <button onclick="shareLinkedIn()" class="btn btn-linkedin">
-                    <i class="fab fa-linkedin-in"></i> Add to LinkedIn
-                </button>
-            </div>
-
-            <!-- Certificate Details -->
-            <h2 class="section-title">Certificate Details</h2>
-            
-            <div class="details-grid">
-                <div class="detail-item">
-                    <div class="detail-label">Candidate Name</div>
-                    <div class="detail-value">Deepak Jangir</div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">Course / Program</div>
-                    <div class="detail-value">Excel VBA Mastery</div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">Certificate ID</div>
-                    <div class="detail-value">CERT-2026-0003</div>
-                </div>
-                <div class="detail-item">
-                    <div class="detail-label">Issue Date</div>
-                    <div class="detail-value">03-Aug-2026</div>
-                </div>
-            </div>
-
-            <!-- Description Box -->
-            <div class="description-box">
-                <i class="fas fa-quote-left" style="color: var(--primary-gold); margin-right: 8px;"></i>
-                
-            </div>
-
-            <!-- Signatures and Authorizations -->
-            <div class="footer-branding">
-                <div class="signature-block">
-                    <img src="https://dataanalystsachin.github.io/Certificate/branding/authority-signature.png" alt="Authority Signature" class="signature-img" onerror="this.style.display='none'">
-                    <div class="authority-name">Satish Dhawale</div>
-                    <div class="authority-title">CEO Skill Course</div>
-                </div>
-                
-                <div class="iso-block">
-                    <img src="https://dataanalystsachin.github.io/Certificate/branding/iso-logo.png" alt="ISO Certified" class="iso-logo" onerror="this.style.display='none'">
-                </div>
-            </div>
-
+    <div class="container">
+        <div class="header">
+            <div class="brand"><img src="https://dataanalystsachin.github.io/Certificate/branding/organization-logo.jpeg" alt="Logo" style="height:28px;width:auto;border-radius:4px;"> skill course</div>
         </div>
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="site-footer">
-        <div class="footer-info">
-            <!-- These spans will gracefully show whatever contact info is available -->
-            <span><i class="fas fa-globe"></i> </span>
-            <span><i class="fas fa-envelope"></i> </span>
-            <span><i class="fas fa-phone"></i> </span>
-            <span><i class="fas fa-map-marker-alt"></i> </span>
+        <div class="grid">
+            <div class="card-info"><span class="label">Student</span><span class="value">Deepak Jangir</span></div>
+            <div class="card-info"><span class="label">Course</span><span class="value">Excel VBA Mastery</span></div>
+            <div class="card-info"><span class="label">Issued On</span><span class="value">03-Aug-2026</span></div>
+            <div class="card-info"><span class="label">Cert ID</span><span class="value">CERT-2026-0003</span></div>
         </div>
-        <div class="copyright">
-            &copy; <script>document.write(new Date().getFullYear())</script> skill course. All rights reserved.
+        <div class="cert-container">
+            <img src="https://dataanalystsachin.github.io/Certificate/certificates/png/CERT-2026-0003.png" alt="Certificate" class="cert-img">
+            <div class="actions">
+                <a href="https://dataanalystsachin.github.io/Certificate/certificates/png/CERT-2026-0003.png" download="CERT-2026-0003.png" class="btn btn-img"><i class="fas fa-download"></i> Download Image</a>
+                <a href="https://dataanalystsachin.github.io/Certificate/certificates/pdf/CERT-2026-0003.pdf" class="btn btn-pdf" download="CERT-2026-0003.pdf"><i class="fas fa-file-pdf"></i> Download PDF</a>
+                <a href="https://wa.me/?text=%5BCERT_EMOJI%5D%20I%20just%20completed%20the%20Excel%20VBA%20Mastery%21%20Check%20out%20my%20certificate%20here%3A%20https%3A%2F%2Fdataanalystsachin.github.io%2FCertificate%2Fcertificates%2FCERT-2026-0003.html" target="_blank" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Share Status</a>
+                <a href="https://www.linkedin.com/profile/add?startTask=CERTIFICATION_NAME&name=Excel%20VBA%20Mastery&organizationName=skill%20course&certId=CERT-2026-0003&certUrl=https%3A%2F%2Fdataanalystsachin.github.io%2FCertificate%2Fcertificates%2FCERT-2026-0003.html" target="_blank" class="btn btn-li"><i class="fab fa-linkedin"></i> Add LinkedIn</a>
+            </div>
         </div>
-    </footer>
-
-    <!-- JavaScript for Interactive Buttons -->
-    <script>
-        // Share to WhatsApp
-        function shareWhatsApp() {
-            const currentUrl = encodeURIComponent(window.location.href);
-            const shareText = encodeURIComponent("Check out my verified certificate for Excel VBA Mastery from skill course! ??");
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}%20${currentUrl}`;
-            window.open(whatsappUrl, '_blank');
-        }
-
-        // Add to LinkedIn (Shares the live link to the LinkedIn feed)
-        function shareLinkedIn() {
-            const currentUrl = encodeURIComponent(window.location.href);
-            const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
-            window.open(linkedInUrl, '_blank', 'width=800,height=600');
-        }
-
-        // Clean up empty footer fields gracefully if placeholders are replaced with empty text
-        document.addEventListener('DOMContentLoaded', () => {
-            const footerSpans = document.querySelectorAll('.footer-info span');
-            footerSpans.forEach(span => {
-                // If the text content only contains the icon and whitespace, or raw placeholder
-                const text = span.textContent.trim();
-                if(!text || text === '' || text.includes('{{')) {
-                    // In a live environment, if replaced by empty string, the length is short
-                    // We check if it's basically just the icon space
-                    if(span.childNodes.length <= 2 && text.length < 2) {
-                        span.style.display = 'none';
-                    }
-                }
-            });
-        });
-    </script>
+    </div>
 </body>
 </html>
